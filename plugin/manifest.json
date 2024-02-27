@@ -1,0 +1,25 @@
+{
+  "manifest_version": 1,
+  "version": 3,
+  "type": "APP",
+  "desktop": {
+    "js": ["https://127.0.0.1:5500/plugin/js/desktop.js"],
+    "css": ["css/51-modern-default.css", "css/desktop.css"]
+  },
+  "icon": "image/icon.png",
+  "config": {
+    "html": "html/config.html",
+    "js": ["https://127.0.0.1:5500/plugin/js/config.js"],
+    "css": ["css/51-modern-default.css", "css/config.css"]
+  },
+  "name": {
+    "en": "wenxin-push-fc",
+    "ja": "wenxin-push-fc",
+    "zh": "wenxin-push-fc"
+  },
+  "description": {
+    "en": "wenxin-push-fc",
+    "ja": "wenxin-push-fc",
+    "zh": "wenxin-push-fc"
+  }
+}

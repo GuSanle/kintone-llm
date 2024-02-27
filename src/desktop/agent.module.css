@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+#chat-container {
+  padding: 8px;
+}
+
+#chat-log {
+  white-space: pre-wrap;
+}
+
+#chat-form {
+  padding-top: 6px;
+  display: flex;
+  align-items: center;
+}
+
+#text-input {
+  --kuc-text-input-width: 400px;
+}
+
+#send-button {
+  margin-left: 8px;
+}
+
+.message-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.sender {
+  font-size: xx-large;
+  flex-grow: 0; /* 右側のDivに幅を占有させない */
+  flex-shrink: 0; /* 幅の縮小を禁止 */
+  margin-right: 10px; /* 如果需要的话，这会在sender和message之间添加一些空间 */
+}
+
+.message {
+  position: relative;
+  /* display: inline-block;  */
+  display: block;
+  margin: 4px 0 4px 20px;
+  padding: 7px 10px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #dae8bc;
+  border-radius: 15px;
+}
+
+.message:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -22px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #dae8bc;
+  white-space: pre-line; 
+}
+
+.message p {
+  margin: 0;
+  padding: 0;
+}
+
+.user {
+  align-self: flex-start;
+  
+}
+
+.bot {
+  align-self: flex-end;
+}
+
+.input {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 400px;
+}
+
+
+
+.button {
+  margin: 10px;
+  padding: 10px;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.bottomElement {
+  position: relative;
+  bottom: 0;
+}
+
