@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "version": 3,
+  "version": 1,
   "type": "APP",
   "desktop": {
     "js": ["https://127.0.0.1:5500/plugin/js/desktop.js"],
@@ -13,13 +13,13 @@
     "css": ["css/51-modern-default.css", "css/config.css"]
   },
   "name": {
-    "en": "wenxin-push-fc",
-    "ja": "wenxin-push-fc",
-    "zh": "wenxin-push-fc"
+    "en": "kintone-ai-tools",
+    "ja": "kintone-ai-tools",
+    "zh": "kintone-ai-tools"
   },
   "description": {
-    "en": "wenxin-push-fc",
-    "ja": "wenxin-push-fc",
-    "zh": "wenxin-push-fc"
+    "en": "kintone-ai-tools",
+    "ja": "kintone-ai-tools",
+    "zh": "kintone-ai-tools"
   }
 }

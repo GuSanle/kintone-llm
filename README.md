@@ -2,10 +2,11 @@
 1.首次打包
 kintone-plugin-packer plugin
 2.重命名ppk文件为private.ppk
+3.注意配置的kuc和安装的kuc版本能对上 common/index.ts
 
 ## 开发
 方式1: 自动编译，打包，上传
-确认manifest.json中js的地址为js/desktop.js类
+确认manifest.json中js的地址为js/desktop.js类,而不是本地地址
 pnpm run start
 
 方式2: 已经上传好插件后，只希望修改js，不需要重新打包，上传
