@@ -37,3 +37,6 @@ jspdf会有动态导入的问题，先不做
 在你的情况下，processQueue函数中的setMessageQueue和setWords都是异步的，这意味着它们可能不会立即更新状态。因此，如果你在状态更新后立即访问状态，可能会得到旧的状态值。
 通过使用函数式更新，你可以确保你总是在最新的状态上操作。当你传递一个函数到setState时，React会确保这个函数在应用状态更新时运行，这样你就可以得到最新的状态值。
 
+## tailwind
+在config中使用了，在desktop还没使用，学习阶段。使用的话，需要使用tailwind:watch脚本去生成
+
