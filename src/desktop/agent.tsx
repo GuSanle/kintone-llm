@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import styles from './agent.module.css'
 import { availableFunctions, functionDefinitions } from './api/index'
 import { fetchWenXin } from './service/llm'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 type FunctionAvailable = 'ParseFile'
 //查询
@@ -55,13 +57,13 @@ const Agent: React.FC = () => {
       const fcComponent = functionResponse.component
       let stringResponse = JSON.stringify((functionResponse as any)?.data ?? [])
 
-      let htmlResponse = stringResponse.replace(/\\n/g, ' ')
+      // let htmlResponse = stringResponse.replace(/\\n/g, ' ')
 
       setMessages((messages) => [
         ...messages,
         {
           role: 'assistant',
-          content: `获取到的结果是：${htmlResponse}`,
+          content: `获取到的结果是：${stringResponse}`,
           component: fcComponent,
 
           // content: `获取到的结果是小王23岁`,
@@ -102,7 +104,8 @@ const Agent: React.FC = () => {
                 <div className={`${styles.sender} ${styles.bot}`}>🤖</div>
               )}
               <div className={styles.message}>
-                {message.content} {message.component && <message.component />}
+                <ReactMarkdown children={message.content} remarkPlugins={[remarkGfm]} />
+                {message.component && <message.component />}
               </div>
               <p></p>
             </>

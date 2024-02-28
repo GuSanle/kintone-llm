@@ -55,7 +55,7 @@
   margin-top: -15px;
   border: 15px solid transparent;
   border-right: 15px solid #dae8bc;
-  white-space: pre-line; 
+  white-space: pre-line;
 }
 
 .message p {
@@ -65,7 +65,7 @@
 
 .user {
   align-self: flex-start;
-  
+
 }
 
 .bot {
