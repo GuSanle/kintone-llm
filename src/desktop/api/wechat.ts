@@ -1,16 +1,23 @@
-import { WechatNotice } from "../service/wechatTuisong";
-import { GetWechatId } from "./sales";
-
+import { WechatNotice } from '../service/wechatTuisong'
+import { GetWechatId } from './sales'
+interface UserData {
+  wechatId: string
+  [key: string]: object | string | undefined
+}
 export const PushToWechat = async (user: string, message: string) => {
-  const result = await GetWechatId(user)!;
-  if (!result) {
-    return null;
+  const result = await GetWechatId(user)!
+  if (!result || !result.success) {
+    return {
+      success: false,
+      data: '失败',
+    }
   } else {
-    const [, status] = await WechatNotice([result.data.wechatId], message);
-    const resp = status === 200 ? true : false;
+    const userData = result.data as UserData
+    const [, status] = await WechatNotice([userData.wechatId], message)
+    const resp = status === 200 ? true : false
     return {
       success: resp,
-      data: "成功",
-    };
+      data: '成功',
+    }
   }
-};
+}

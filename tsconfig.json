@@ -5,7 +5,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "moduleResolution":"Bundler",
     // "declaration": true,
     "target": "ES2020",

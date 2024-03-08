@@ -2,7 +2,7 @@ import { GetSalesDataById, GetAllSalesData, GetWechatId } from './sales'
 import { PushToWechat } from './wechat'
 import { ShowMap, DistanceMap } from './map'
 import { MailTo } from './mail'
-// import { ElementToPdf } from "./pdf";
+
 import { ParseFile } from './parseFile'
 export const functionDefinitions = [
   {
@@ -94,15 +94,6 @@ export const functionDefinitions = [
       required: ['user'],
     },
   },
-  // {
-  //   name: "ElementToPdf",
-  //   description: "将当前记录或者页面转换成pdf",
-  //   parameters: {
-  //     type: "object",
-  //     properties: {},
-  //     required: [],
-  //   },
-  // },
   {
     name: 'ParseFile',
     description: '解析附件中文件的内容',
@@ -122,6 +113,5 @@ export const availableFunctions = {
   ShowMap,
   DistanceMap,
   MailTo,
-  // ElementToPdf,
   ParseFile,
 }

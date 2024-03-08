@@ -1,60 +1,75 @@
-import { GetRecord, GetRecords, GetRecordsByApp } from "../service/kintoneApi";
-const salesApp = 70;
-const userApp = 71;
-
-function convertToCommonData(kintoneDataObj: any) {
-  let commonObj: any = {};
-  Object.keys(kintoneDataObj).forEach((k) => {
-    commonObj[k] = kintoneDataObj[k].value;
-  });
-  return commonObj;
+import { GetRecord, GetRecords, GetRecordsByApp } from '../service/kintoneApi'
+const salesApp = 70
+const userApp = 71
+interface UserData {
+  wechatId: string
+  email: string
+  [key: string]: object | string | undefined
 }
 
-export const GetSalesDataById = async () => {
-  const id = kintone.app.record.getId();
+function convertToCommonData(kintoneDataObj) {
+  const commonObj = {}
+  Object.keys(kintoneDataObj).forEach((k) => {
+    commonObj[k] = kintoneDataObj[k].value
+  })
+  return commonObj
+}
+
+export const GetSalesDataById = async (): Promise<ApiResponse<object>> => {
+  const id = kintone.app.record.getId()
   if (id) {
-    const record = await GetRecord(salesApp, id);
+    const record = await GetRecord(salesApp, id)
     if (record) {
       return {
         success: true,
         data: convertToCommonData(record),
-      };
+      }
     }
   }
-  return null;
-};
+  return {
+    success: false,
+    data: '失败',
+  }
+}
 
 export const GetAllSalesData = async () => {
-  const records = await GetRecordsByApp(salesApp);
+  const records = await GetRecordsByApp(salesApp)
   if (records) {
     const result = records.map((r) => {
       return {
         success: true,
         data: convertToCommonData(r),
-      };
-    });
-    console.log(result, "result");
-    return result;
+      }
+    })
+    console.log(result, 'result')
+    return result
   } else {
-    return null;
+    return {
+      success: false,
+      data: '失败',
+    }
   }
-};
+}
 
-export const GetWechatId = async (user: string) => {
-  const query = `user = "${user}"`;
-  const records = await GetRecords(userApp, query);
+export const GetWechatId = async (user: string): Promise<ApiResponse<object>> => {
+  const query = `user = "${user}"`
+  const records = await GetRecords(userApp, query)
   if (records) {
     const result = records.map((r) => {
-      return convertToCommonData(r);
-    });
+      return convertToCommonData(r)
+    })
+    const userData = result[0] as UserData
     return {
       success: true,
       data: {
-        wechatId: result[0].wechatId,
-        email: result[0].email,
+        wechatId: userData.wechatId,
+        email: userData.email,
       },
-    };
+    }
   } else {
-    return null;
+    return {
+      success: false,
+      data: '失败',
+    }
   }
-};
+}
