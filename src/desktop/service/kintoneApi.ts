@@ -78,3 +78,21 @@ export const GetFile = async (app: number, id: number, fieldCode: string) => {
     return null
   }
 }
+
+export const PostRecords = async (app: number, records) => {
+  try {
+    const params = {
+      app,
+      records,
+    }
+    const resp = await client.record.addRecords(params)
+    if (resp.ids.length > 0) {
+      return resp.ids
+    } else {
+      return null
+    }
+  } catch (err) {
+    console.log(err)
+    return null
+  }
+}
