@@ -36,6 +36,19 @@ export const functionDefinitions = [
       required: ['user'],
     },
   },
+  // {
+  //   name: 'SendMessageToWechatById',
+  //   description: '根据微信id给用户发送信息',
+  //   parameters: {
+  //     type: 'object',
+  //     properties: {
+  //       id: {
+  //         type: 'string',
+  //       },
+  //     },
+  //     required: ['id'],
+  //   },
+  // },
   {
     name: 'ShowMap',
     description: '根据地址显示地图',
@@ -114,4 +127,5 @@ export const availableFunctions = {
   DistanceMap,
   MailTo,
   ParseFile,
+  // SendMessageToWechatById,
 }
