@@ -6,13 +6,13 @@ kintone.events.on(['app.record.detail.show'], async (event) => {
   chatEl.id = 'chat'
   kintone.app.record.getHeaderMenuSpaceElement()?.appendChild(chatEl)
 
-  const mapEl = document.createElement('div')
-  mapEl.id = 'map'
-  kintone.app.record.getHeaderMenuSpaceElement()?.appendChild(mapEl)
+  // const mapEl = document.createElement('div')
+  // mapEl.id = 'map'
+  // kintone.app.record.getHeaderMenuSpaceElement()?.appendChild(mapEl)
 
-  const fileEl = document.createElement('div')
-  fileEl.id = 'file'
-  kintone.app.record.getHeaderMenuSpaceElement()?.appendChild(fileEl)
+  // const fileEl = document.createElement('div')
+  // fileEl.id = 'file'
+  // kintone.app.record.getHeaderMenuSpaceElement()?.appendChild(fileEl)
 
   ReactDOM.createRoot(document.getElementById('chat')!).render(
     // <React.StrictMode>
