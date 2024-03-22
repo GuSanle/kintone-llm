@@ -6,6 +6,28 @@ import { MailTo } from './mail'
 import { ParseFile } from './parseFile'
 export const functionDefinitions = [
   {
+    name: 'ShowMap',
+    description: '根据地址显示地图',
+    parameters: {
+      type: 'object',
+      properties: {
+        address: {
+          type: 'string',
+        },
+      },
+      required: ['address'],
+    },
+  },
+  {
+    name: 'ParseFile',
+    description: '解析附件中文件的内容',
+    parameters: {
+      type: 'object',
+      properties: {},
+      required: [],
+    },
+  },
+  {
     name: 'GetSalesDataById',
     description: '获取，分析当前记录',
     parameters: {
@@ -49,19 +71,7 @@ export const functionDefinitions = [
   //     required: ['id'],
   //   },
   // },
-  {
-    name: 'ShowMap',
-    description: '根据地址显示地图',
-    parameters: {
-      type: 'object',
-      properties: {
-        address: {
-          type: 'string',
-        },
-      },
-      required: ['address'],
-    },
-  },
+
   {
     name: 'DistanceMap',
     description: '通过地图获取路线',
@@ -107,15 +117,7 @@ export const functionDefinitions = [
       required: ['user'],
     },
   },
-  {
-    name: 'ParseFile',
-    description: '解析附件中文件的内容',
-    parameters: {
-      type: 'object',
-      properties: {},
-      required: [],
-    },
-  },
+
 ]
 
 export const availableFunctions = {

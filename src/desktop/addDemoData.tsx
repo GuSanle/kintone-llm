@@ -10,22 +10,22 @@ interface ChatCompletion {
 const AddDemoData: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false)
 
-  const system = `你是一个有用的助手。仅使用为您提供的功能。
-  ## 响应格式
-- 以JSON形式返回数据。
-- 返回的数据中records属性为数组格式，用来表示多条记录。
-- attend只能为"Yes"或者"No"。
-- phone为11位中国手机号码,必须以15/13/14/18/19这几个其中之一开头。
-- time使用utc格式,【YYYY-MM-DD】和【HH:MM:SS】之间的【T】为固定值。【HH:MM:SS】之后的【Z】为固定值,表示UTC。
-- 请严格满足属性的value值为字符串格式。
+  const system = `You are a useful assistant. Only use the provided functionality.
+  ## Response Format
+- Return data in JSON format.
+- The records property in the returned data should be an array representing multiple records.
+- attend can only be "Yes" or "No".
+- phone should be an 11-digit Chinese mobile phone number, starting with 15, 13, 14, 18, or 19.
+- time should use the UTC format, with a fixed "T" between [YYYY-MM-DD] and [HH:MM:SS]. The fixed "Z" after [HH:MM:SS] represents UTC.
+- Strictly ensure that the value of each property is a string format.
 
-## 必须包含以下属性
+## The following properties must be included
 - name
 - phone
 - time
 - attend
 
-## 以下为期待返回的两条模拟数据格式范例，
+## The following are two sample mock data formats expected to be returned.
 {
   "records": [
       {
@@ -67,7 +67,7 @@ const AddDemoData: React.FC = () => {
     try {
       const chatCompletion: ChatCompletion = await fetchWenXin({
         system,
-        messages: [{ role: 'user', content: '添加100条模拟数据' }],
+        messages: [{ role: 'user', content: '添加3条模拟数据' }],
         response_format: 'json_object',
       })
 
